@@ -1,0 +1,39 @@
+Hi Zahidul,  I reviewed the Milestones and there were a couple of things that needed to be included,  and they are as follows:   Updated Milestone 1:
+Purchase request form (client-facing )
+Purchase Form Admin approval dashboard
+
+Updated Milestone 2:
+Courses Bulk user assignment interface with the (CO2e Cloud Users access)
+***The Workflow:
+Step 1: Client Purchases
+Company X buys 10 seats for "Climate Action Training"
+Submits form with employee names/emails
+
+Step 2: You (Admin) Bulk Assign
+Open admin dashboard
+Select course: "Climate Action Training"
+Upload CSV or manually add 10 employees:
+
+  john@companyX.com
+  maria@companyX.com
+  (etc...)
+Click "Assign & Send Invites"
+
+Step 3: System Creates Access
+Auto-generates login credentials for each user
+Sends email: "You've been enrolled in Climate Action Training"
+Users click link → set password → access CO2e Cloud 
+
+Step 4: Users Access Their Courses
+Login shows ONLY courses assigned to them
+Can't see courses they didn't purchase
+Progress tracked individually
+  
+**************************************************
+Email notifications for course assignments
+
+
+Updated Milestone 4:
+Certificate/Badge PDF generation (with CO2ePortal branding)
+Automated 48-hour credential revocation system
+Admin panel to manually revoke/extend credentials

@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "co2-cloud-front",
+      "script": "npm",
+      "args": "run start",
+      "cwd": "/var/www/C02eportal-co2e-cloudfrontend"
+    }
+  ]
+}
