@@ -4,7 +4,7 @@
       "name": "co2-cloud-front",
       "script": "npm",
       "args": "run start",
-      "cwd": "/var/www/C02eportal-co2e-cloudfrontend"
+      "cwd": "/var/www/co2e-cloud-front"
     }
   ]
 }
