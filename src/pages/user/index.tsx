@@ -1460,7 +1460,7 @@ export default function CO2ePortalAuditTSX() {
                   <div>
                     <h4 style="margin: 0 0 8px 0; color: #1f2937;">${
                       audit.deptLabel
-                    }</h4>
+                    } </h4> 
                     <p style="margin: 0; font-size: 0.85rem; color: #64748b;">
                       <strong>${audit.fieldsFilled}</strong> of <strong>${
                     audit.totalFields
@@ -1470,15 +1470,15 @@ export default function CO2ePortalAuditTSX() {
                       <div style="background: #10b981; height: 100%; width: ${
                         audit.completion
                       }%;"></div>
-                    </div>
+                    </div> 
                     <p style="margin: 5px 0 0 0; font-size: 0.8rem; color: #6b7280;"><strong>${
                       audit.completion
                     }%</strong> complete</p>
                   </div>
                   <div style="display: flex; gap: 8px;">
-                    <button data-resume="${
-                      audit.dept
-                    }" style="padding: 8px 16px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Resume</button>
+                    <button data-resume="${audit.dept}"  data-resume-id="${
+                    audit._id
+                  }" style="padding: 8px 16px; background: #9333ea; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Resume</button>
                     <button data-delete="${audit.dept}" data-audit-id="${
                     audit._id || ""
                   }" style="padding: 8px 16px; background: #ef4444; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">Delete</button>
@@ -1514,7 +1514,27 @@ export default function CO2ePortalAuditTSX() {
 
     document.querySelectorAll("[data-resume]").forEach((btn) => {
       const dept = (btn as HTMLElement).getAttribute("data-resume");
-      (btn as HTMLElement).onclick = () => {
+      const id = (btn as HTMLElement).getAttribute("data-resume-id");
+
+      (btn as HTMLElement).onclick = async () => {
+        const res = await apiRequest.get(`/audit/${id}`);
+        console.log(res.data);
+
+        if (res.data?.["_id"]) {
+          localStorage.setItem(
+            "company_info",
+            JSON.stringify(res.data?.companyId)
+          );
+
+          setCompanyInfoStatus("✓ Saved: " + res.data?.companyId.company_name);
+
+          // Optional: store backend id if returned
+
+          localStorage.setItem(
+            "company_id",
+            String(res.data?.companyId?.["_id"])
+          );
+        }
         if (dept) resumeAudit(dept);
       };
     });
