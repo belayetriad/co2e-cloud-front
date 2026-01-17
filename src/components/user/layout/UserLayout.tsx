@@ -1,5 +1,4 @@
 import type { NavItem } from "@/components/ui/NavItem";
-import "@/styles/co2e-cloud-form.css";
 import Header from "./Header";
 
 const navItems: NavItem[] = [];
